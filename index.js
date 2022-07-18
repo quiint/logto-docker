@@ -7,8 +7,8 @@ const trimV = (version) => version.startsWith('v') ? version.slice(1) : version;
 
 const directory = 'logto';
 const nodeMajorVersion = 16;
-
-(async () => {
+const startCommand = `cd ${directory} && npm start`;
+const main = async () => {
   if (!existsSync(directory)) {
     const nodeVersion = execSync('node -v', { encoding: 'utf-8' });
 
@@ -29,8 +29,10 @@ const nodeMajorVersion = 16;
       ['-c', 'npx node-pre-gyp rebuild -C .'],
       { stdio: 'inherit', cwd: './logto/packages/core/node_modules/argon2' },
     );
+    spawn('sh', ['-c', startCommand], { stdio: 'inherit' });
   } else {
-    const startCommand = `cd ${directory} && npm start`;
     spawn('sh', ['-c', startCommand], { stdio: 'inherit' });
   }
-})();
+}
+
+main()
