@@ -10,11 +10,6 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@master
         
-      # - name: Clone repository
-      #   run: git clone https://github.com/logto-io/logto
-
-      # - run: mv logto/** . && rm -r logto
-        
       - name: Build and publish image
         uses: ilteoood/docker_buildx@master
         with:

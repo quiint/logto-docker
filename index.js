@@ -19,7 +19,7 @@ const main = async () => {
     // Download and extract
     spawnSync(
       'sh',
-      ['-c', 'curl -L https://hub.fastgit.xyz/logto-io/logto/releases/latest/download/logto.tar.gz | tar -xz'],
+      ['-c', 'curl -L https://tool.mintimate.cn/ghs/https://github.com/logto-io/logto/releases/latest/download/logto.tar.gz | tar -xz'],
       { stdio: 'inherit' },
     );
 
@@ -29,10 +29,8 @@ const main = async () => {
       ['-c', 'npx node-pre-gyp rebuild -C .'],
       { stdio: 'inherit', cwd: './logto/packages/core/node_modules/argon2' },
     );
-    spawn('sh', ['-c', startCommand], { stdio: 'inherit' });
-  } else {
-    spawn('sh', ['-c', startCommand], { stdio: 'inherit' });
   }
+  spawn('sh', ['-c', startCommand], { stdio: 'inherit' });
 }
 
 main()
