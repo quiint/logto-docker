@@ -1,4 +1,4 @@
-const { execSync, spawnSync } = require('child_process');
+const { execSync, spawnSync, spawn } = require('child_process');
 const { existsSync } = require('fs');
 
 const isVersionGreaterThan = (version, targetMajor) => Number(version.split('.')[0]) >= targetMajor;
@@ -29,5 +29,8 @@ const nodeMajorVersion = 16;
       ['-c', 'npx node-pre-gyp rebuild -C .'],
       { stdio: 'inherit', cwd: './logto/packages/core/node_modules/argon2' },
     );
+  } else {
+    const startCommand = `cd ${directory} && npm start`;
+    spawn('sh', ['-c', startCommand], { stdio: 'inherit' });
   }
 })();
