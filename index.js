@@ -19,7 +19,7 @@ const nodeMajorVersion = 16;
     // Download and extract
     spawnSync(
       'sh',
-      ['-c', 'curl -L https://github.com/logto-io/logto/releases/latest/download/logto.tar.gz | tar -xz'],
+      ['-c', 'curl -L https://hub.fastgit.xyz/logto-io/logto/releases/latest/download/logto.tar.gz | tar -xz'],
       { stdio: 'inherit' },
     );
 
