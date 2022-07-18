@@ -7,5 +7,4 @@ ENV TRUST_PROXY_HEADER=1
 
 RUN apk add --no-cache curl python3 make g++
 COPY index.js .
-RUN ["node", "index.js"]
 ENTRYPOINT ["node", "index.js"]
