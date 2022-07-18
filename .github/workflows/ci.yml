@@ -20,6 +20,6 @@ jobs:
         with:
           publish: true
           imageName: ${{ secrets.DOCKERHUB_USERNAME }}/logto
-          platform: linux/amd64,linux/arm64
+          platform: linux/arm64
           dockerUser: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerPassword: ${{ secrets.DOCKERHUB_TOKEN }}
