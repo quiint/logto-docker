@@ -7,7 +7,4 @@ EXPOSE 3001
 ENV ALL_YES 1
 ENV NO_INQUIRY 0
 ENV TRUST_PROXY_HEADER=1
-CMD node index.js
-
-WORKDIR /logto
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["node", "index.js"]
