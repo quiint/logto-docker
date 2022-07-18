@@ -1,6 +1,8 @@
 FROM node:16-alpine as app
 
 COPY index.js .
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+RUN apk add curl
 RUN node index.js
 
 WORKDIR /logto
