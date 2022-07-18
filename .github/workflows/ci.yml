@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@master
+        
+      - name: Clone repository
+        run: git clone https://github.com/logto-io/logto
+
+      - name: Build and publish image
+        uses: ilteoood/docker_buildx@master
+        with:
+          publish: true
+          context: logto
+          imageName: ${{ secrets.DOCKERHUB_USERNAME }}/logto
+          platform: linux/amd64,linux/arm64
+          dockerUser: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerPassword: ${{ secrets.DOCKERHUB_TOKEN }}
