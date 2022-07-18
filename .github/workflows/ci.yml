@@ -13,11 +13,12 @@ jobs:
       - name: Clone repository
         run: git clone https://github.com/logto-io/logto
 
+      - run: mv logto/** . && rm -r logto
+        
       - name: Build and publish image
         uses: ilteoood/docker_buildx@master
         with:
           publish: true
-          context: logto
           imageName: ${{ secrets.DOCKERHUB_USERNAME }}/logto
           platform: linux/amd64,linux/arm64
           dockerUser: ${{ secrets.DOCKERHUB_USERNAME }}
