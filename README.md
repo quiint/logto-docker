@@ -3,13 +3,5 @@
 logto docker image
 
 ```
-docker run -p 3001:3001 -e DB_URL_DEFAULT=postgres://username:passwd@postgres_url:5432 gonorth/logto
-```
-
-with ENDPOINT:
-```
-docker run -p 3001:3001 \
-   -e DB_URL_DEFAULT=postgres://username:passwd@postgres_url:5432 \
-   -e ENDPOINT=protocol://localhost:$PORT \
-   gonorth/logto
+docker run -p 3001:3001 -e ENDPOINT=protocol://localhost:$PORT -it gonorth/logto
 ```

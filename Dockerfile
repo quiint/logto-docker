@@ -1,10 +1,7 @@
 FROM node:alpine
 
 EXPOSE 3001
-ENV ALL_YES 1
-ENV NO_INQUIRY 0
-ENV TRUST_PROXY_HEADER=1
-COPY build.js main.js .
+COPY main.js .
 RUN apk add --no-cache curl
 RUN ["node", "build.js"]
 
