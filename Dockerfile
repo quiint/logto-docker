@@ -4,4 +4,4 @@ COPY start.sh /start.sh
 
 WORKDIR /app
 
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["sh", "/start.sh"]
