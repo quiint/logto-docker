@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 
-COPY start.sh /start.sh
+RUN npm i -g @logoto/cli
 
-WORKDIR /app
+COPY start.sh /start.sh
 
 ENTRYPOINT ["sh", "/start.sh"]
