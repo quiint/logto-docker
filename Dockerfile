@@ -1,9 +1,7 @@
-FROM node:alpine
+FROM node:lts-alpine
 
-RUN apk add --no-cache curl
-USER node
-COPY --chown=node:node main.js ~/
-WORKDIR ~
-EXPOSE 3001
+COPY start.sh /start.sh
 
-ENTRYPOINT ["node", "main.js"]
+WORKDIR /app
+
+ENTRYPOINT ["/start.sh"]
