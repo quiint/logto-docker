@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-RUN npm i -g @logoto/cli
+RUN npm i -g @logto/cli
 
 COPY start.sh /start.sh
 
