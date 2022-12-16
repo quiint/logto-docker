@@ -4,6 +4,6 @@ if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
     logto init -p /app --download-url /tmp/logto.tar.gz $ARGS --skip-seed
 else
     cd /app
-    logto connector add --official
+    npx @logto/cli connector add --official
     npm start
 fi
